@@ -1,16 +1,15 @@
 ﻿<Page
-    x:Class="CoinTracker.MainPage"
+    x:Class="CoinTracker.Views.MainPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:CoinTracker"
+    xmlns:local="using:CoinTracker.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <Button Content="Hello world!" HorizontalAlignment="Center"/>
-        <ListView ItemsSource="{Binding Asset}">
+        <ListView ItemsSource="{Binding Asset}" Margin="978,10,0,0">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid>
