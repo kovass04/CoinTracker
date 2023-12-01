@@ -10,6 +10,16 @@
 
     <Grid>
         <Button Content="Hello world!" HorizontalAlignment="Center"/>
-
+        <ListView ItemsSource="{Binding Asset}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <TextBlock Text="{Binding name}" />
+                        <TextBlock Text="{Binding symbol}" />
+                        <TextBlock Text="{Binding priceUsd}" />
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </Grid>
 </Page>

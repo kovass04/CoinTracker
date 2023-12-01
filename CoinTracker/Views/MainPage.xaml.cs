@@ -1,8 +1,10 @@
-﻿using System;
+﻿using CoinTracker.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.ServiceModel.Channels;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -24,6 +26,7 @@ namespace CoinTracker
     {
         public MainPage()
         {
+            DataContext = new MainViewModel();
             this.InitializeComponent();
         }
     }
