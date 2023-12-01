@@ -13,6 +13,8 @@
         IsBackEnabled="{Binding ElementName=ContentFrame, Path=CanGoBack}" >
             <NavigationView.MenuItems>
                 <NavigationViewItem Content="Main" Tag="MainPage" Icon="Favorite"/>
+                <NavigationViewItem Content="List" Tag="ListPage" Icon="Folder"/>
+                <NavigationViewItem Content="Search" Tag="SearchPage" Icon="Zoom"/>
             </NavigationView.MenuItems>
             <Frame x:Name="ContentFrame" NavigationFailed="ContentFrame_NavigationFailed" ></Frame>
         </NavigationView>

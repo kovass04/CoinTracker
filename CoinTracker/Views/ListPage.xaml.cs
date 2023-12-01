@@ -1,5 +1,4 @@
-﻿using CoinTracker.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -21,12 +20,11 @@ namespace CoinTracker.Views
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class MainPage : Page
+    public sealed partial class ListPage : Page
     {
-        public MainPage()
+        public ListPage()
         {
             this.InitializeComponent();
-            DataContext = new MainViewModel();
         }
     }
 }
