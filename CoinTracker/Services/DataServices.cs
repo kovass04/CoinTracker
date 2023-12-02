@@ -20,15 +20,15 @@ namespace CoinTracker.Services
         }
 
         //TODO 
-        /*public async Task<AssetModel> GetAssetsAsync()
+        public async Task<AssetData> GetAssetsAsync()
         {
             var response = await _httpClient.GetAsync("assets");
             response.EnsureSuccessStatusCode();
 
             var content = await response.Content.ReadAsStringAsync();
-            return JsonConvert.DeserializeObject<AssetModel>(content);
-        }*/
-        public async Task<AssetData> GetAssetsAsync()
+            return JsonConvert.DeserializeObject<AssetData>(content);
+        }
+        /*public async Task<AssetData> GetAssetsAsync()
         {
             using (var response = await _httpClient.GetAsync("assets"))
             {
@@ -37,7 +37,7 @@ namespace CoinTracker.Services
                 var content = await response.Content.ReadAsStringAsync();
                 return JsonConvert.DeserializeObject<AssetData>(content);
             }
-        }
+        }*/
         public async Task<AssetDataId> GetAssetsIdAsync(string Id)
         {
             var response = await _httpClient.GetAsync($"assets/{Id}");

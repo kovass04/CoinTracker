@@ -56,7 +56,7 @@ namespace CoinTracker.ViewModels
         {
             if (Window.Current?.Content is Frame rootFrame)
             {
-                rootFrame.Navigate(typeof(SelectedItemPage), SelectedAsset?.Id);
+                rootFrame.Navigate(typeof(SelectedItemPage), SelectedAsset?.Id.ToString());
             }
         }
     }

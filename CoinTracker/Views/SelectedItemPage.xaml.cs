@@ -26,15 +26,17 @@ namespace CoinTracker.Views
         public SelectedItemPage()
         {
             this.InitializeComponent();
-            DataContext = new SelectedItemViewModel();
         }
 
         //TODO do it later. data is loaded later because it is not loaded on the page.
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             if (e.Parameter != null)
-                textBlock1.Text = e.Parameter.ToString();
-            DataContext = new SelectedItemViewModel(e.Parameter.ToString());
+            {
+                string id = e.Parameter.ToString();
+                textBlock1.Text = id;
+                DataContext = new SelectedItemViewModel(id);
+            }
         }
     }
 }

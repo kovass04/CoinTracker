@@ -10,20 +10,11 @@
 
     <Grid>
         <Button Content="Go back" HorizontalAlignment="Center"/>
-        <TextBlock Text="{Binding AssetsId.Name}" Margin="340,59,983,841" />
-
-        <TextBlock x:Name="textBlock1" FontSize="24" TextWrapping="Wrap" Margin="1257,42,106,901"/>
-        
-        <ListView ItemsSource="{Binding AssetsId}" Margin="334,545,334,144">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Vertical">
-                        <TextBlock Text="{Binding Name}"  />
-                        <TextBlock Text="{Binding Symbol}" />
-                        <TextBlock Text="{Binding PriceUsd}" />
-                    </StackPanel>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+        <TextBlock Text="{Binding AssetsId.Rank}"/>
+        <TextBlock x:Name="textBlock1" Text="empty"  FontSize="24" TextWrapping="Wrap"/>
+        <TextBlock Text="{Binding AssetsId.Rank}"  />
+        <TextBlock Text="{Binding AssetsId.Name}" />
+        <TextBlock Text="{Binding AssetsId.Symbol}" />
+        <TextBlock Text="{Binding AssetsId.PriceUsd}" />
     </Grid>
 </Page>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CoinTracker.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -25,6 +26,7 @@ namespace CoinTracker.Views
         public SearchPage()
         {
             this.InitializeComponent();
+            DataContext = new SearchViewModel();
         }
     }
 }
