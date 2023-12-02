@@ -1,18 +1,20 @@
 ﻿using CoinTracker.Models;
 using CoinTracker.Services;
-using CommunityToolkit.Mvvm.Input;
+using CoinTracker.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Input;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
 
 namespace CoinTracker.ViewModels
 {
-    public class MainViewModel : BaseViewModel
+    public class ListViewModel : BaseViewModel
     {
-        public MainViewModel() 
-        {            
+        public ListViewModel() 
+        {
             _Services = new DataServices();
             _ = LoadAssetsAsync();
         }
@@ -30,7 +32,7 @@ namespace CoinTracker.ViewModels
         protected async Task LoadAssetsAsync()
         {
             var assets = await _Services.GetAssetsAsync();
-            Asset = new List<Assets>(assets.Data.OrderBy(m => m.Rank).Take(10));
+            Asset = new List<Assets>(assets.Data);
         }
 
         private Assets _selectedAsset;
@@ -52,8 +54,10 @@ namespace CoinTracker.ViewModels
         //TODO
         private void HandleSelectedAsset()
         {
-            Console.WriteLine($"Selected asset: {SelectedAsset?.Name}");
+            if (Window.Current?.Content is Frame rootFrame)
+            {
+                rootFrame.Navigate(typeof(SelectedItemPage), SelectedAsset?.Id);
+            }
         }
-
     }
 }

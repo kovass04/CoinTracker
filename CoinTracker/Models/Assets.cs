@@ -17,7 +17,7 @@ namespace CoinTracker.Models
         public string Id { get; set; }
 
         [DataMember(Name = "rank")]
-        public string Rank { get; set; }
+        public int Rank { get; set; }
 
         [DataMember(Name = "symbol")]
         public string Symbol { get; set; }

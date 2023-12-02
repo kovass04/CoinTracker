@@ -21,12 +21,20 @@ namespace CoinTracker.Views
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class ListPage : Page
+    public sealed partial class SelectedItemPage : Page
     {
-        public ListPage()
+        public SelectedItemPage()
         {
             this.InitializeComponent();
-            DataContext = new ListViewModel();
+            DataContext = new SelectedItemViewModel();
+        }
+
+        //TODO do it later. data is loaded later because it is not loaded on the page.
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            if (e.Parameter != null)
+                textBlock1.Text = e.Parameter.ToString();
+            DataContext = new SelectedItemViewModel(e.Parameter.ToString());
         }
     }
 }
