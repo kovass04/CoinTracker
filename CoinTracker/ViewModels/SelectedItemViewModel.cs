@@ -33,5 +33,6 @@ namespace CoinTracker.ViewModels
             var assetsId = await _Services.GetAssetsIdAsync(Id);
             AssetsId = assetsId.Data;
         }
+        //TODO finalize the page, develop the interface, add graphics
     }
 }

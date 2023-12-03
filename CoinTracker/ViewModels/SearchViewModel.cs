@@ -35,6 +35,7 @@ namespace CoinTracker.ViewModels
                 }
             }
         }
+        //TODO add the ability to search by code
         private void PerformSearch()
         {
             var filteredAssets = _allAssets.Where(a => a.Name.Contains(SearchText, StringComparison.OrdinalIgnoreCase)).ToList();
@@ -45,7 +46,6 @@ namespace CoinTracker.ViewModels
             _Services = new DataServices();
             _ = LoadAssetsAsync();
         }
-
         protected async Task LoadAssetsAsync()
         {
             var assets = await _Services.GetAssetsAsync();

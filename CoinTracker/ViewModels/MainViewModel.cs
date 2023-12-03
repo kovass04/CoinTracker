@@ -49,7 +49,7 @@ namespace CoinTracker.ViewModels
                 }
             }
         }
-        //TODO
+        //TODO complete the selection
         private void HandleSelectedAsset()
         {
             Console.WriteLine($"Selected asset: {SelectedAsset?.Name}");

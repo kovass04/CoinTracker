@@ -33,9 +33,7 @@ namespace CoinTracker.Views
         {
             if (e.Parameter != null)
             {
-                string id = e.Parameter.ToString();
-                textBlock1.Text = id;
-                DataContext = new SelectedItemViewModel(id);
+                DataContext = new SelectedItemViewModel(e.Parameter.ToString());
             }
         }
     }

@@ -11,8 +11,6 @@
     <Grid>
         <Button Content="Go back" HorizontalAlignment="Center"/>
         <TextBlock Text="{Binding AssetsId.Rank}"/>
-        <TextBlock x:Name="textBlock1" Text="empty"  FontSize="24" TextWrapping="Wrap"/>
-        <TextBlock Text="{Binding AssetsId.Rank}"  />
         <TextBlock Text="{Binding AssetsId.Name}" />
         <TextBlock Text="{Binding AssetsId.Symbol}" />
         <TextBlock Text="{Binding AssetsId.PriceUsd}" />
