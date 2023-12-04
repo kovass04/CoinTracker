@@ -8,19 +8,29 @@
     mc:Ignorable="d">
 
     <Grid>
-        <TextBlock TextWrapping="Wrap" Text="Top 10" Margin="10,10,-10,-10"/>
-        <ListView ItemsSource="{Binding Asset}" SelectedItem="{Binding SelectedAsset, Mode=TwoWay}" Margin="0,34,0,0">
+        <StackPanel>
+        <TextBlock TextWrapping="Wrap" Text="Top 10" Margin="10,10,10,0" HorizontalAlignment="Center" FontSize="20" FontWeight="Bold"/>
+
+        <ListView ItemsSource="{Binding Asset}" SelectedItem="{Binding SelectedAsset, Mode=TwoWay}" Margin="10,0,10,10">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel Orientation="Vertical">
-                        <TextBlock Text="{Binding Rank}"  />
-                        <TextBlock Text="{Binding Name}"  />
-                        <TextBlock Text="{Binding Symbol}" />
-                        <TextBlock Text="{Binding PriceUsd}" />
-                    </StackPanel>
+                    <Grid Margin="0,5,0,5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Text="{Binding Rank}" VerticalAlignment="Center" Margin="5"/>
+
+                        <StackPanel Grid.Column="1" Orientation="Vertical" Margin="10,0,0,0">
+                            <TextBlock Text="{Binding Name}" FontWeight="Bold"/>
+                            <TextBlock Text="{Binding Symbol}" FontSize="12" Opacity="0.6"/>
+                            <TextBlock Text="{Binding PriceUsd}" FontSize="14" FontWeight="Bold" Margin="0,5,0,0"/>
+                        </StackPanel>
+                    </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        
+        </StackPanel>
     </Grid>
 </Page>
