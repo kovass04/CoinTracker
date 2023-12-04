@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CoinTracker.ViewModels;
+using CommunityToolkit.Mvvm.DependencyInjection;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -25,6 +27,7 @@ namespace CoinTracker.Views
         public SettingsPage()
         {
             this.InitializeComponent();
+            DataContext = new SettingViewModel();
         }
     }
 }

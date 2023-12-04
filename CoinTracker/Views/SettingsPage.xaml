@@ -6,9 +6,29 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    RequestedTheme="{Binding CurrentTheme, Mode=TwoWay}"
+    >
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Styles/Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
 
-    <Grid>
-        <Button Content="Settings!" HorizontalAlignment="Center"/>
+        <Grid Grid.Row="0">
+            <StackPanel Orientation="Horizontal">
+                <Button >Hello</Button>
+                <TextBlock Text="Select theme" VerticalAlignment="Center"/>
+                <RadioButton Content="Default" GroupName="ThemeGroup" IsChecked="{Binding SelectedTheme, Mode=TwoWay}"/>
+                <RadioButton Content="Light" GroupName="ThemeGroup" IsChecked="{Binding SelectedThemeLight, Mode=TwoWay}" />
+                <RadioButton Content="Dark" GroupName="ThemeGroup" IsChecked="{Binding SelectedThemeDark, Mode=TwoWay}" />
+            </StackPanel>
+        </Grid>
     </Grid>
 </Page>

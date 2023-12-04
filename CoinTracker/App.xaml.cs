@@ -1,4 +1,8 @@
-﻿using CoinTracker.Views;
+﻿using CoinTracker.Services;
+using CoinTracker.ViewModels;
+using CoinTracker.Views;
+using CommunityToolkit.Mvvm.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.IO;
