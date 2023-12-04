@@ -9,22 +9,25 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <Button Content="Search" HorizontalAlignment="Center"/>
-        <TextBox x:Name="SearchBox1" PlaceholderText="Enter search query" Margin="607,522,608,435" />
-        <TextBox x:Name="SearchBox" PlaceholderText="Enter search query" Margin="607,571,602,374" />
+        <TextBox x:Name="SearchTextBox" Text="{Binding SearchText, Mode=TwoWay}" PlaceholderText="Enter search text" Margin="10,10,10,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="300"/>
 
-        <TextBox x:Name="SearchTextBox" Text="{Binding SearchText, Mode=TwoWay}" PlaceholderText="Enter search text" Margin="0,0,906,534"/>
-
-
-        <ListView ItemsSource="{Binding Asset}" Margin="903,10,10,0">
+        <ListView ItemsSource="{Binding Asset}" Margin="10,50,10,10">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel Orientation="Vertical">
-                        <TextBlock Text="{Binding Rank}"  />
-                        <TextBlock Text="{Binding Name}"  />
-                        <TextBlock Text="{Binding Symbol}" />
-                        <TextBlock Text="{Binding PriceUsd}" />
-                    </StackPanel>
+                    <Grid Margin="0,5,0,5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Text="{Binding Rank}" VerticalAlignment="Center" Margin="5"/>
+
+                        <StackPanel Grid.Column="1" Orientation="Vertical" Margin="10,0,0,0">
+                            <TextBlock Text="{Binding Name}" FontWeight="Bold"/>
+                            <TextBlock Text="{Binding Symbol}" FontSize="12" Opacity="0.6"/>
+                            <TextBlock Text="{Binding PriceUsd}" FontSize="14" FontWeight="Bold" Margin="0,5,0,0"/>
+                        </StackPanel>
+                    </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
