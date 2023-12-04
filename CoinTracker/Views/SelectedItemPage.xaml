@@ -9,10 +9,13 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <Button Content="Go back" HorizontalAlignment="Center"/>
-        <TextBlock Text="{Binding AssetsId.Rank}"/>
-        <TextBlock Text="{Binding AssetsId.Name}" />
-        <TextBlock Text="{Binding AssetsId.Symbol}" />
-        <TextBlock Text="{Binding AssetsId.PriceUsd}" />
+        <Button Content="Go back" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0"/>
+
+        <StackPanel HorizontalAlignment="Center" Margin="0,20,0,0">
+            <TextBlock Text="{Binding AssetsId.Rank}" FontSize="18" FontWeight="Bold"/>
+            <TextBlock Text="{Binding AssetsId.Name}" FontSize="16"/>
+            <TextBlock Text="{Binding AssetsId.Symbol}" FontSize="14" Opacity="0.6"/>
+            <TextBlock Text="{Binding AssetsId.PriceUsd}" FontSize="18" FontWeight="Bold"/>
+        </StackPanel>
     </Grid>
 </Page>
