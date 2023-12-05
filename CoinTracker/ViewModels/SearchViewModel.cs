@@ -1,10 +1,13 @@
 ﻿using CoinTracker.Models;
 using CoinTracker.Services;
+using CoinTracker.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml;
 
 namespace CoinTracker.ViewModels
 {
@@ -35,7 +38,6 @@ namespace CoinTracker.ViewModels
                 }
             }
         }
-        //TODO add the ability to search by code
         private void PerformSearch()
         {
             var filteredAssets = _allAssets.Where(a => a.Name.Contains(SearchText, StringComparison.OrdinalIgnoreCase)).ToList();
@@ -51,6 +53,30 @@ namespace CoinTracker.ViewModels
             var assets = await _Services.GetAssetsAsync();
             _allAssets = new List<Assets>(assets.Data);
             Asset = new List<Assets>(_allAssets);
+        }
+
+        private Assets _selectedAsset;
+
+        public Assets SelectedAsset
+        {
+            get { return _selectedAsset; }
+            set
+            {
+                if (_selectedAsset != value)
+                {
+                    _selectedAsset = value;
+                    OnPropertyChanged(nameof(SelectedAsset));
+
+                    HandleSelectedAsset();
+                }
+            }
+        }
+        private void HandleSelectedAsset()
+        {
+            if (Window.Current?.Content is Frame rootFrame)
+            {
+                rootFrame.Navigate(typeof(SelectedItemPage), SelectedAsset?.Id.ToString());
+            }
         }
     }
 }

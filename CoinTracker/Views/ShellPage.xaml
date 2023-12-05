@@ -16,6 +16,7 @@
                 <NavigationViewItem x:Uid="ShellList" Content="List" Tag="ListPage" Icon="Folder"/>
                 <NavigationViewItem x:Uid="ShellSearch" Content="Search" Tag="SearchPage" Icon="Zoom"/>
             </NavigationView.MenuItems>
+            
             <Frame x:Name="ContentFrame" NavigationFailed="ContentFrame_NavigationFailed" ></Frame>
         </NavigationView>
     </Grid>

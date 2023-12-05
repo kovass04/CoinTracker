@@ -1,11 +1,14 @@
 ﻿using CoinTracker.Models;
 using CoinTracker.Services;
+using CoinTracker.Views;
 using CommunityToolkit.Mvvm.Input;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml;
 
 namespace CoinTracker.ViewModels
 {
@@ -49,11 +52,12 @@ namespace CoinTracker.ViewModels
                 }
             }
         }
-        //TODO complete the selection
         private void HandleSelectedAsset()
         {
-            Console.WriteLine($"Selected asset: {SelectedAsset?.Name}");
+            if (Window.Current?.Content is Frame rootFrame)
+            {
+                rootFrame.Navigate(typeof(SelectedItemPage), SelectedAsset?.Id.ToString());
+            }
         }
-
     }
 }

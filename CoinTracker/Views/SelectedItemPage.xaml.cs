@@ -27,6 +27,13 @@ namespace CoinTracker.Views
         {
             this.InitializeComponent();
         }
+        private void OnBackButtonClicked(object sender, RoutedEventArgs e)
+        {
+            if (Frame.CanGoBack)
+            {
+                Frame.GoBack();
+            }
+        }
 
         //TODO do it later. data is loaded later because it is not loaded on the page.
         protected override void OnNavigatedTo(NavigationEventArgs e)

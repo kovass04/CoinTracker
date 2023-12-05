@@ -9,9 +9,12 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <TextBox x:Name="SearchTextBox" Text="{Binding SearchText, Mode=TwoWay}" PlaceholderText="Enter search text" Margin="10,10,10,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="300"/>
+        <TextBox x:Name="SearchTextBox" Text="{Binding SearchText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                 PlaceholderText="Enter search text" Margin="10,10,10,0" 
+                 VerticalAlignment="Top" HorizontalAlignment="Left" Width="300"
+                 />
 
-        <ListView ItemsSource="{Binding Asset}" Margin="10,50,10,10">
+        <ListView ItemsSource="{Binding Asset}" SelectedItem="{Binding SelectedAsset, Mode=TwoWay}" Margin="10,50,10,10">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid Margin="0,5,0,5">

@@ -51,7 +51,6 @@ namespace CoinTracker.ViewModels
                 }
             }
         }
-        //TODO
         private void HandleSelectedAsset()
         {
             if (Window.Current?.Content is Frame rootFrame)

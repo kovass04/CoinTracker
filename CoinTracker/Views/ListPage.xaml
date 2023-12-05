@@ -9,28 +9,24 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <!-- Кнопка для сортування списку -->
-        <Button Content="List Sort" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,10,0,0"/>
+        <StackPanel Orientation="Horizontal" Margin="10,0,0,0" VerticalAlignment="Top">
+            <Button Content="Name" Width="150" Background="Transparent"/>
+            <Button Content="Symbol" Width="150" Background="Transparent"/>
+            <Button Content="Price" Width="160" Background="Transparent"/>
+            <Button Content="Supply" Width="160" Background="Transparent"/>
+            <Button Content="Max Supply" Width="160" Background="Transparent"/>
+        </StackPanel>
 
-        <!-- Список елементів -->
-        <ListView ItemsSource="{Binding Asset}" SelectedItem="{Binding SelectedAsset, Mode=TwoWay}" Margin="10,40,10,10">
+        <ListView ItemsSource="{Binding Asset}" SelectedItem="{Binding SelectedAsset, Mode=TwoWay}" Margin="0,34,0,0">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Grid Margin="0,5,0,5">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-
-                        <!-- Назва -->
-                        <TextBlock Text="{Binding Name}" VerticalAlignment="Center" Grid.Column="0" Margin="5"/>
-
-                        <!-- Інша інформація про актив -->
-                        <StackPanel Grid.Column="1" Orientation="Vertical" Margin="10,0,0,0">
-                            <TextBlock Text="{Binding Symbol}" FontSize="12" Opacity="0.6"/>
-                            <TextBlock Text="{Binding PriceUsd}" FontSize="14" FontWeight="Bold" Margin="0,5,0,0"/>
-                        </StackPanel>
-                    </Grid>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Name}"  Width="150" Margin="5"/>
+                        <TextBlock Text="{Binding Symbol}" Width="130" Margin="5"/>
+                        <TextBlock Text="{Binding PriceUsd}" Width="150" Margin="5"/>
+                        <TextBlock Text="{Binding Supply}" Width="150" Margin="5"/>
+                        <TextBlock Text="{Binding MaxSupply}" Width="150" Margin="5"/>
+                    </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
