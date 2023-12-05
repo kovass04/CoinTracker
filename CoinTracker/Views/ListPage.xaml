@@ -15,6 +15,8 @@
             <Button Content="Price" Width="160" Background="Transparent"/>
             <Button Content="Supply" Width="160" Background="Transparent"/>
             <Button Content="Max Supply" Width="160" Background="Transparent"/>
+            <ComboBox Width="160" SelectedIndex="0" ItemsSource="{Binding SortOptions}" SelectedItem="{Binding SelectedSortOption, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" >
+            </ComboBox>
         </StackPanel>
 
         <ListView ItemsSource="{Binding Asset}" SelectedItem="{Binding SelectedAsset, Mode=TwoWay}" Margin="0,34,0,0">

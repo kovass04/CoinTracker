@@ -38,7 +38,7 @@ namespace CoinTracker.Models
         public string VolumeUsd24Hr { get; set; }
 
         [DataMember(Name = "priceUsd")]
-        public string PriceUsd { get; set; }
+        public decimal PriceUsd { get; set; }
 
         [DataMember(Name = "changePercent24Hr")]
         public string ChangePercent24Hr { get; set; }
