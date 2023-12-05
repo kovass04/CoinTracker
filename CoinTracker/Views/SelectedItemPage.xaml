@@ -61,16 +61,5 @@
             </StackPanel>
         </Grid>
         
-        <!-- ... Видалити на релізі, якщо не пофікшу ... -->
-        <Grid Grid.Column="1">
-            <!--
-            <Charting:Chart>
-            <Charting:LineSeries Title="000000"
-                                   ItemsSource="{Binding Charts}"
-                                   IndependentValueBinding="{Binding Time}"
-                                   DependentValueBinding="{Binding PriceUsd}"/>
-            </Charting:Chart>
-            -->
-        </Grid>
     </Grid>
 </Page>

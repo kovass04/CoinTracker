@@ -34,8 +34,6 @@ namespace CoinTracker.Views
                 Frame.GoBack();
             }
         }
-
-        //TODO do it later. data is loaded later because it is not loaded on the page.
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             if (e.Parameter != null)

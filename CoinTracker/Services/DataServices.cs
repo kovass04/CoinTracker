@@ -18,8 +18,6 @@ namespace CoinTracker.Services
             _httpClient = new HttpClient();
             _httpClient.BaseAddress = new Uri("https://api.coincap.io/v2/");
         }
-
-        //TODO 
         public async Task<AssetData> GetAssetsAsync()
         {
             var response = await _httpClient.GetAsync("assets");
@@ -28,16 +26,6 @@ namespace CoinTracker.Services
             var content = await response.Content.ReadAsStringAsync();
             return JsonConvert.DeserializeObject<AssetData>(content);
         }
-        /*public async Task<AssetData> GetAssetsAsync()
-        {
-            using (var response = await _httpClient.GetAsync("assets"))
-            {
-                response.EnsureSuccessStatusCode();
-
-                var content = await response.Content.ReadAsStringAsync();
-                return JsonConvert.DeserializeObject<AssetData>(content);
-            }
-        }*/
         public async Task<AssetDataId> GetAssetsIdAsync(string Id)
         {
             var response = await _httpClient.GetAsync($"assets/{Id}");
@@ -45,14 +33,6 @@ namespace CoinTracker.Services
 
             var content = await response.Content.ReadAsStringAsync();
             return JsonConvert.DeserializeObject<AssetDataId>(content);
-        }
-        public async Task<DataCharts> GetChartsAsync(string assetId, string date)
-        {
-            var response = await _httpClient.GetAsync($"assets/{assetId}/history?interval={date}");
-            response.EnsureSuccessStatusCode();
-
-            var content = await response.Content.ReadAsStringAsync();
-            return JsonConvert.DeserializeObject<DataCharts>(content);
         }
     }
 }
