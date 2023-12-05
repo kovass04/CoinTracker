@@ -6,7 +6,8 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    xmlns:Charting="using:WinRTXamlToolkit.Controls.DataVisualization.Charting">
 
     <Grid>
         <Button Click="OnBackButtonClicked" Background="Transparent" Margin="0,11,0,0" VerticalAlignment="Top">
@@ -21,11 +22,9 @@
                 </Grid>
             </Button.Content>
         </Button>
-        <Grid VerticalAlignment="Top" Margin="10">
-            <!-- Кнопка "Назад" -->
+        <Grid Grid.Column="0" VerticalAlignment="Top" Margin="10">
             
 
-            <!-- Інформація про актив -->
             <StackPanel HorizontalAlignment="Center" Margin="0,20,0,0">
                 <TextBlock Text="Rank" FontSize="16" FontWeight="Bold"/>
                 <TextBlock Text="{Binding AssetsId.Rank}" FontSize="18" FontWeight="Bold"/>
@@ -36,7 +35,6 @@
                 <TextBlock Text="Symbol" FontSize="16" FontWeight="Bold" Margin="0,10,0,0"/>
                 <TextBlock Text="{Binding AssetsId.Symbol}" FontSize="14" Opacity="0.6" Margin="0,0,0,5"/>
 
-                <!-- Інша інформація про актив -->
                 <TextBlock Text="Price" FontSize="16" FontWeight="Bold" Margin="0,10,0,0"/>
                 <TextBlock Text="{Binding AssetsId.PriceUsd}" FontSize="16"/>
 
@@ -62,9 +60,17 @@
                 <TextBlock Text="{Binding AssetsId.Explorer}" FontSize="16" Margin="0,0,0,10"/>
             </StackPanel>
         </Grid>
-
-        <!-- Правий блок: Пустий контейнер для графіка -->
+        
+        <!-- ... Видалити на релізі, якщо не пофікшу ... -->
         <Grid Grid.Column="1">
+            <Charting:Chart 
+
+                >
+                <Charting:LineSeries Title="000000"
+                                     ItemsSource="{Binding Charts}"
+                                     IndependentValueBinding="{Binding Time}"
+                                     DependentValueBinding="{Binding PriceUsd}"/>
+            </Charting:Chart>
         </Grid>
     </Grid>
 </Page>

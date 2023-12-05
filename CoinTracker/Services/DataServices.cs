@@ -46,5 +46,13 @@ namespace CoinTracker.Services
             var content = await response.Content.ReadAsStringAsync();
             return JsonConvert.DeserializeObject<AssetDataId>(content);
         }
+        public async Task<DataCharts> GetChartsAsync(string assetId, string date)
+        {
+            var response = await _httpClient.GetAsync($"assets/{assetId}/history?interval={date}");
+            response.EnsureSuccessStatusCode();
+
+            var content = await response.Content.ReadAsStringAsync();
+            return JsonConvert.DeserializeObject<DataCharts>(content);
+        }
     }
 }
