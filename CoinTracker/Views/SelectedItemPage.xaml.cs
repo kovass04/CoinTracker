@@ -1,17 +1,6 @@
 ﻿using CoinTracker.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
@@ -19,14 +8,23 @@ using Windows.UI.Xaml.Navigation;
 namespace CoinTracker.Views
 {
     /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
+    /// Represents the SelectedItemPage in the application.
     /// </summary>
     public sealed partial class SelectedItemPage : Page
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SelectedItemPage"/> class.
+        /// </summary>
         public SelectedItemPage()
         {
             this.InitializeComponent();
         }
+
+        /// <summary>
+        /// Handles the click event of the back button.
+        /// </summary>
+        /// <param name="sender">The sender of the event.</param>
+        /// <param name="e">Event arguments.</param>
         private void OnBackButtonClicked(object sender, RoutedEventArgs e)
         {
             if (Frame.CanGoBack)
@@ -34,6 +32,11 @@ namespace CoinTracker.Views
                 Frame.GoBack();
             }
         }
+
+        /// <summary>
+        /// Called when the page is navigated to.
+        /// </summary>
+        /// <param name="e">Navigation event arguments.</param>
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             if (e.Parameter != null)

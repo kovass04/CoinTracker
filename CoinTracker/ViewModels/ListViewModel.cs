@@ -1,24 +1,31 @@
 ﻿using CoinTracker.Models;
 using CoinTracker.Services;
 using CoinTracker.Views;
-using CommunityToolkit.Mvvm.Input;
-using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Input;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
 namespace CoinTracker.ViewModels
 {
+    /// <summary>
+    /// ViewModel for managing the list of assets.
+    /// </summary>
     public class ListViewModel : BaseViewModel
     {
-        public ListViewModel() 
+        private readonly DataServices _services;
+        private List<Assets> _assets;
+        private Assets _selectedAsset;
+        private string _selectedSortOption;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ListViewModel"/> class.
+        /// </summary>
+        public ListViewModel()
         {
-            _Services = new DataServices();
+            _services = new DataServices();
             _ = LoadAssetsAsync();
 
             SortOptions = new ObservableCollection<string>
@@ -31,9 +38,9 @@ namespace CoinTracker.ViewModels
 
         }
 
-
-        private readonly DataServices _Services;
-        private List<Assets> _assets;
+        /// <summary>
+        /// Gets or sets the list of assets.
+        /// </summary>
         public List<Assets> Asset
         {
             get => _assets;
@@ -42,14 +49,10 @@ namespace CoinTracker.ViewModels
                 SetProperty(ref _assets, value);
             }
         }
-        protected async Task LoadAssetsAsync()
-        {
-            var assets = await _Services.GetAssetsAsync();
-            Asset = new List<Assets>(assets.Data);
-        }
 
-        private Assets _selectedAsset;
-
+        /// <summary>
+        /// Gets or sets the selected asset.
+        /// </summary>
         public Assets SelectedAsset
         {
             get { return _selectedAsset; }
@@ -64,15 +67,10 @@ namespace CoinTracker.ViewModels
                 }
             }
         }
-        private void HandleSelectedAsset()
-        {
-            if (Window.Current?.Content is Frame rootFrame)
-            {
-                rootFrame.Navigate(typeof(SelectedItemPage), SelectedAsset?.Id.ToString());
-            }
-        }
 
-        private string _selectedSortOption;
+        /// <summary>
+        /// Gets or sets the selected sort option.
+        /// </summary>
         public string SelectedSortOption
         {
             get { return _selectedSortOption; }
@@ -87,25 +85,52 @@ namespace CoinTracker.ViewModels
             }
         }
         public ObservableCollection<string> SortOptions { get; set; }
+
+        /// <summary>
+        /// Loads assets asynchronously from the data service.
+        /// </summary>
+        /// <returns>An asynchronous task.</returns>
+        protected async Task LoadAssetsAsync()
+        {
+            var assets = await _services.GetAssetsAsync();
+            Asset = new List<Assets>(assets.Data);
+        }
+
+        /// <summary>
+        /// Navigates to the selected asset page.
+        /// </summary>
+        private void HandleSelectedAsset()
+        {
+            if (Window.Current?.Content is Frame rootFrame)
+            {
+                rootFrame.Navigate(typeof(SelectedItemPage), SelectedAsset?.Id.ToString());
+            }
+        }
+
+        /// <summary>
+        /// Sorts the list of assets based on the selected sort option.
+        /// </summary>
+        /// <param name="typeSort">The selected sort option.</param>
         private void SortData(string typeSort)
         {
-            if (typeSort == "Sort by Highest price") 
+            switch (typeSort)
             {
-                Asset = new List<Assets>(Asset.OrderByDescending(m => m.PriceUsd));
+                case "Sort by Highest price":
+                    Asset = new List<Assets>(Asset.OrderByDescending(m => m.PriceUsd));
+                    break;
+
+                case "Sort by Lowest price":
+                    Asset = new List<Assets>(Asset.OrderBy(m => m.PriceUsd));
+                    break;
+
+                case "Sort by Name":
+                    Asset = new List<Assets>(Asset.OrderByDescending(m => m.Name));
+                    break;
+
+                default:
+                    Asset = new List<Assets>(Asset.OrderBy(m => m.Rank));
+                    break;
             }
-            else if (typeSort == "Sort by Lowest price")
-            {
-                Asset = new List<Assets>(Asset.OrderBy(m => m.PriceUsd));
-            }
-            else if(typeSort == "Sort by Name")
-            {
-                Asset = new List<Assets>(Asset.OrderByDescending(m => m.Name));
-            }
-            else
-            {
-                Asset = new List<Assets>(Asset.OrderBy(m => m.Rank));
-            }
-            
         }
     }
 }

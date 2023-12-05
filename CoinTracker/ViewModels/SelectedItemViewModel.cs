@@ -1,25 +1,30 @@
 ﻿using CoinTracker.Models;
 using CoinTracker.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace CoinTracker.ViewModels
 {
+    /// <summary>
+    /// ViewModel for managing the details of a selected asset.
+    /// </summary>
     public class SelectedItemViewModel : BaseViewModel
     {
-        public SelectedItemViewModel() { }
-        public SelectedItemViewModel(string Id) 
+        private readonly DataServices _services;
+        private Assets _assetsId;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SelectedItemViewModel"/> class.
+        /// </summary>
+        /// <param name="id">The identifier of the selected asset.</param>
+        public SelectedItemViewModel(string id) 
         {
-            _Services = new DataServices();
-            _ = LoadAssetsIdAsync(Id);
+            _services = new DataServices();
+            _ = LoadAssetsIdAsync(id);
         }
 
-        private readonly DataServices _Services;
-
-        private Assets _assetsId;
+        /// <summary>
+        /// Gets or sets the details of the selected asset.
+        /// </summary>
         public Assets AssetsId
         {
             get => _assetsId;
@@ -28,9 +33,15 @@ namespace CoinTracker.ViewModels
                 SetProperty(ref _assetsId, value);
             }
         }
-        protected async Task LoadAssetsIdAsync(string Id)
+
+        /// <summary>
+        /// Loads details of the selected asset asynchronously.
+        /// </summary>
+        /// <param name="id">The identifier of the selected asset.</param>
+        /// <returns>An asynchronous task.</returns>
+        protected async Task LoadAssetsIdAsync(string id)
         {
-            var assetsId = await _Services.GetAssetsIdAsync(Id);
+            var assetsId = await _services.GetAssetsIdAsync(id);
             AssetsId = assetsId.Data;
         }
     }
