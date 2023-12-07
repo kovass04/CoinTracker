@@ -117,6 +117,45 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="24HrVolume.Text" xml:space="preserve">
+    <value>Об'єм 24год</value>
+  </data>
+  <data name="Change24Hr.Text" xml:space="preserve">
+    <value>Зміна 24год</value>
+  </data>
+  <data name="Dark.Content" xml:space="preserve">
+    <value>Темна</value>
+  </data>
+  <data name="Default.Content" xml:space="preserve">
+    <value>За замовченням</value>
+  </data>
+  <data name="EnterSearchText.PlaceholderText" xml:space="preserve">
+    <value>Введіть текст для пошуку</value>
+  </data>
+  <data name="Explorer.Text" xml:space="preserve">
+    <value>Веб-сайт</value>
+  </data>
+  <data name="Light.Content" xml:space="preserve">
+    <value>Світла</value>
+  </data>
+  <data name="MarketCap.Text" xml:space="preserve">
+    <value>Риночна кап.</value>
+  </data>
+  <data name="MaxSupply.Text" xml:space="preserve">
+    <value>Максимальний обсяг</value>
+  </data>
+  <data name="Name.Text" xml:space="preserve">
+    <value>Назва</value>
+  </data>
+  <data name="Price.Text" xml:space="preserve">
+    <value>Ціна</value>
+  </data>
+  <data name="Rank.Text" xml:space="preserve">
+    <value>Ранг</value>
+  </data>
+  <data name="SelectTheme.Text" xml:space="preserve">
+    <value>Обрати тему</value>
+  </data>
   <data name="ShellList.Content" xml:space="preserve">
     <value>Список</value>
   </data>
@@ -125,5 +164,14 @@
   </data>
   <data name="ShellSearch.Content" xml:space="preserve">
     <value>Пошук</value>
+  </data>
+  <data name="Supply.Text" xml:space="preserve">
+    <value>Обсяг</value>
+  </data>
+  <data name="Symbol.Text" xml:space="preserve">
+    <value>Символ</value>
+  </data>
+  <data name="TopText.Content" xml:space="preserve">
+    <value>Топ 10</value>
   </data>
 </root>

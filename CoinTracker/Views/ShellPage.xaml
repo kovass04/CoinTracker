@@ -6,17 +6,23 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{Binding CurrentTheme, Mode=TwoWay}">
-
+    RequestedTheme="{Binding CurrentTheme, Mode=TwoWay}">
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Styles/Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
     <Grid>
-        <NavigationView Background="{Binding CurrentTheme, Mode=TwoWay}" x:Name="NavView"  SelectionChanged="NavView_SelectionChanged"  ItemInvoked="NavView_ItemInvoked" Loaded="NavView_Loaded" BackRequested="NavView_BackRequested" 
+        <NavigationView x:Name="NavView"  SelectionChanged="NavView_SelectionChanged"  ItemInvoked="NavView_ItemInvoked" Loaded="NavView_Loaded" BackRequested="NavView_BackRequested" 
         IsBackEnabled="{Binding ElementName=ContentFrame, Path=CanGoBack}" >
             <NavigationView.MenuItems>
                 <NavigationViewItem x:Uid="ShellMain" Content="Main" Tag="MainPage" Icon="Favorite"/>
                 <NavigationViewItem x:Uid="ShellList" Content="List" Tag="ListPage" Icon="Folder"/>
                 <NavigationViewItem x:Uid="ShellSearch" Content="Search" Tag="SearchPage" Icon="Zoom"/>
             </NavigationView.MenuItems>
-            
+
             <Frame x:Name="ContentFrame" NavigationFailed="ContentFrame_NavigationFailed" ></Frame>
         </NavigationView>
     </Grid>

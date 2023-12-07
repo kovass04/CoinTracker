@@ -6,15 +6,15 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    RequestedTheme="{Binding CurrentTheme, Mode=TwoWay}">
 
     <Grid>
         <StackPanel Orientation="Horizontal" Margin="10,0,0,0" VerticalAlignment="Top">
-            <Button Content="Name" Width="150" Background="Transparent"/>
-            <Button Content="Symbol" Width="150" Background="Transparent"/>
-            <Button Content="Price" Width="160" Background="Transparent"/>
-            <Button Content="Supply" Width="160" Background="Transparent"/>
-            <Button Content="Max Supply" Width="160" Background="Transparent"/>
+            <TextBlock x:Uid="Name" Text="Name" Width="150" TextAlignment="Center" VerticalAlignment="Center"/>
+            <TextBlock x:Uid="Symbol" Text="Symbol" Width="150" TextAlignment="Center" VerticalAlignment="Center"/>
+            <TextBlock x:Uid="Price" Text="Price" Width="160" TextAlignment="Center" VerticalAlignment="Center"/>
+            <TextBlock x:Uid="Supply" Text="Supply" Width="160" TextAlignment="Center" VerticalAlignment="Center"/>
+            <TextBlock x:Uid="MaxSupply" Text="Max Supply" Width="160" TextAlignment="Center" VerticalAlignment="Center"/>
             <ComboBox Width="160" SelectedIndex="0" ItemsSource="{Binding SortOptions}" SelectedItem="{Binding SelectedSortOption, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" >
             </ComboBox>
         </StackPanel>

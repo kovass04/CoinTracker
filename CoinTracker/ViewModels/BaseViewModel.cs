@@ -1,11 +1,30 @@
-﻿using System.ComponentModel;
+﻿using CoinTracker.Services;
+using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using Windows.UI.Xaml;
 
 namespace CoinTracker.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
-        public BaseViewModel() { }
+        public BaseViewModel() 
+        {
+            ThemeSettingsModel themeSettingsModel = new ThemeSettingsModel();
+            CurrentTheme = themeSettingsModel.LoadTheme();
+        }
+        private ElementTheme _currentTheme;
+        public ElementTheme CurrentTheme
+        {
+            get => _currentTheme;
+            set
+            {
+                if (_currentTheme != value)
+                {
+                    _currentTheme = value;
+                    OnPropertyChanged(nameof(CurrentTheme));
+                }
+            }
+        }
 
         #region INotifyPropertyChanged
 

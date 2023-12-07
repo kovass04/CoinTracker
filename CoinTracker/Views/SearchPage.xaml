@@ -6,10 +6,10 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    RequestedTheme="{Binding CurrentTheme, Mode=TwoWay}">
 
     <Grid>
-        <TextBox x:Name="SearchTextBox" Text="{Binding SearchText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+        <TextBox x:Uid="EnterSearchText" x:Name="SearchTextBox" Text="{Binding SearchText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
                  PlaceholderText="Enter search text" Margin="10,10,10,0" 
                  VerticalAlignment="Top" HorizontalAlignment="Left" Width="300"
                  />

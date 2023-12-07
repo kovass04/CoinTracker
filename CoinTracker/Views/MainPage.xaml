@@ -5,11 +5,12 @@
     xmlns:local="using:CoinTracker.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
+    mc:Ignorable="d"
+    RequestedTheme="{Binding CurrentTheme, Mode=TwoWay}">
 
     <Grid>
         <StackPanel>
-        <TextBlock TextWrapping="Wrap" Text="Top 10" Margin="10,10,10,0" HorizontalAlignment="Center" FontSize="20" FontWeight="Bold"/>
+        <TextBlock x:Uid="TopText" TextWrapping="Wrap" Text="Top 10" Margin="10,10,10,0" HorizontalAlignment="Center" FontSize="20" FontWeight="Bold"/>
 
         <ListView ItemsSource="{Binding Asset}" SelectedItem="{Binding SelectedAsset, Mode=TwoWay}" Margin="10,0,10,10">
             <ListView.ItemTemplate>

@@ -2,22 +2,10 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <ResourceDictionary.ThemeDictionaries>
-        <ResourceDictionary x:Key="Default">
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary>
-                    <SolidColorBrush x:Key="ThemeBackgroundBrush" Color="Black" />
-					<SolidColorBrush x:Key="ButtonForegroundBrush" Color="White" />
-					<SolidColorBrush x:Key="ButtonBackgroundBrush" Color="Black" />
-                </ResourceDictionary>
-            </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
-
         <ResourceDictionary x:Key="Dark">
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary>
-                    <SolidColorBrush x:Key="ThemeBackgroundBrush" Color="White" />
-					<SolidColorBrush x:Key="ButtonRevealStyle" Color="White" />
-					<SolidColorBrush x:Key="ButtonBackgroundBrush" Color="Black" />
+                    <SolidColorBrush x:Key="ThemeBackgroundBrush" Color="Black" />
                 </ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
@@ -25,9 +13,7 @@
         <ResourceDictionary x:Key="Light">
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary>
-                    <SolidColorBrush x:Key="ThemeBackgroundBrush" Color="#2C3E50" />
-					<SolidColorBrush x:Key="ButtonRevealStyle" Color="Black" />
-					<SolidColorBrush x:Key="ButtonBackgroundBrush" Color="Black" />
+                    <SolidColorBrush x:Key="ThemeBackgroundBrush" Color="Gray" />
                 </ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
